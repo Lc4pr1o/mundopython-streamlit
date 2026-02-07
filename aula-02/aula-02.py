@@ -4,7 +4,7 @@ import streamlit as st
 st.title("Elementos Interativos de layout")
 
 # ---Barra/menu Lateral
-st.sidebar.header("Menu")
+st.sidebar.header("Menu Lateral")
 
 # ---Adcionar uma caixa de texto ao menu
 nome = st.sidebar.text_input(label="Digite o seu nome")
@@ -28,15 +28,13 @@ with col1[0]:  # ---Primeira coluna
 
     # ---Barra slider para escolher um valor
     valor_slider = st.slider(
-        label="Escolha um valor", min_value=0, max_value=100, value=50
+        label="Escolha um valor", min_value=0, max_value=100, value=0
     )
-
-    st.write(
-        f"Valor selecionado: {valor_slider}"
-    )  # --- print para exibir mensagem do valor selecionado.
+    if valor_slider > 0:
+        st.write(f"Valor selecionado: {valor_slider}")# --- print para exibir mensagem do valor selecionado.
 
 with col1[1]:  # ---Segunda coluna
-    st.header("Informações e imagens")  # --- Titulo
+    st.header("Coluna 2")  # --- Titulo
     st.info("Esta é uma mensagem informativa")  # --- caixa fixa de mensagem informativa
 
     st.warning(
@@ -56,4 +54,5 @@ num1 = st.number_input(
     min_value=0,
     max_value=100
 )
-st.write(f'Valor digitado {num1}')
+if num1 > 0:
+    st.write(f'Valor digitado {num1}')
